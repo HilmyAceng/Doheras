@@ -6,71 +6,162 @@
     <title>Document</title>
 </head>
 <style>
-    div {
-        text-align: center;
-    }
-    h1 {
-        font-size: large;
-        margin-bottom: 40px;
-        font-weight: bold;
-    }
-    img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        transition: all 0.5s;
-        margin: auto;
-    }
-    button {
-        margin-top: 50px;
-        padding: 10px 20px;
-        background-color: blue;
-        color: white;
-        border-radius: 5px;
-    }
-    button:hover {
-        background-color: aqua;
-    }
-    #movingImage {
-    width: 300px;
-    transition: transform 0.5s;
-    }
-    .move {
-    transform: translateY(100px);
-    }
+    #dohaeras {
+  overflow: hidden;
+}
+
+.test {
+  margin-bottom: -6%;
+  padding-top: 0 !important;
+  opacity: 0;
+  transition: all 1.5s;
+}
+
+.border-dohaeras {
+  margin-top: 4%;
+  transition: all 1.5s;
+}
+
+.phone {
+  margin-top: -10%;
+  transition: all 1.5s;
+}
+
+.transition-width {
+  transition: width 1.5s;
+}
+
+.logo-mic {
+  margin-top: -11%;
+  width: 120px;
+  transition: all 1.5s;
+}
+
+.tapToSpeak {
+  margin-top: -15%;
+  opacity: 0;
+  z-index: 1;
+  transition: all 1.5s;
+}
+
+.logo-api {
+  margin-top: -23%;
+  opacity: 1;
+  transition: all 1.5s;
+}
+
+.logo-gif-api {
+    top: -50px;
+}
 </style>
 <body>
-<div>
-    <h1>Katakan "DOHAIRAS" untuk memindahkan gambar</h1>
-    <p id="coba"></p>
-    <p id="doheras"></p>
-    <button id="startButton">Mulai Voice Recognition</button>
-</div>
-      <script>
-      if (!('webkitSpeechRecognition' in window)) {
-          alert("Browser Anda tidak mendukung Web Speech API.");
-      }
+
+<section id="section1"></section>
+    <div>
+        <h1>Katakan "DOHAIRAS" untuk mendapatkan Dragon</h1>
+        <p id="doheras"></p>
+        <button id="microphone" @click="myFunction()" class="py-3 relative z-10">                    
+            <picture>
+                <source srcset="/images/microphone-02.webp" type="image/webp">
+                <source srcset="/images/microphone-02.png" type="image/png">
+                <img src="/images/microphone-02.png" id="logo-mic" class="mx-auto w-20 transition-width" alt="Microphone">
+            </picture>
+        </button>
+        <p class="text-white relative z-10" id="speak" style="font-family: Trajan Pro;">
+            TAP TO SPEAK
+        </p>
+        <picture class="absolute inset-0">
+            <source srcset="/images/mic-api.gif" type="image/webp">
+            <source srcset="/images/mic-api.gif" type="image/png">
+            <img src="/images/mic-api.gif" id="logo-api" class="logo-gif-api w-96 opacity-0" alt="Logo Api">
+        </picture>
+    </div>
+</section>
+
+<section id="section2">
+    <h2>Section 2</h2>
+    <p>Ini adalah konten section 2.</p>
+</section>
+
+<section id="section3">
+    <h2>Section 3</h2>
+    <p>Ini adalah konten section 3.</p>
+</section>
+
+<p>
+    <button id="downloadBtn">Download PDF</button>&nbsp;<script>
+                                                        document.getElementById("downloadBtn").addEventListener("click", function() {
+                                                            const url = "https://www.akudankau.co.id/sites/default/files/2025-05/Data_Pemenang_DANCOW.pdf";
+                                                            const link = document.createElement("a");
+                                                            link.href = url;
+                                                            link.download = "Data_Pemenang_DANCOW.pdf"; // Nama file yang akan di-download
+                                                            document.body.appendChild(link);
+                                                            link.click();
+                                                            document.body.removeChild(link);
+                                                        });
+                                                        </script>
+</p>
+
+
+<a href="suara.html">Coba Ini</a>
+    <script>
+    if (!('webkitSpeechRecognition' in window)) {
+        alert("Browser Anda tidak mendukung Web Speech API.");
+    }
       
-    document.getElementById('startButton').addEventListener('click', () => {
+    document.getElementById('microphone').addEventListener('click', () => {
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
     recognition.onresult = function(event) {
         const transcript = event.results[0][0].transcript.toLowerCase();
         if (transcript.includes('the heiress')) {
             document.getElementById('doheras').innerHTML = "Your Dragon Awaken";
+            document.getElementById('audio').play();
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
         }
         else if (transcript.includes('duhai ras')) {
             document.getElementById('doheras').innerHTML = "Your Dragon Awaken";
+            document.getElementById('audio').play();
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
         }
         else if (transcript.includes('dohai ras')) {
             document.getElementById('doheras').innerHTML = "Your Dragon Awaken";
+            document.getElementById('audio').play();
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
         }
         else if (transcript.includes('the heirs')) {
             document.getElementById('doheras').innerHTML = "Your Dragon Awaken";
+            document.getElementById('audio').play();
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        }
+        else if (transcript.includes('the harris')) {
+            document.getElementById('doheras').innerHTML = "Your Dragon Awaken";
+            document.getElementById('audio').play();
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        }
+        else if (transcript.includes('no harris')) {
+            document.getElementById('doheras').innerHTML = "Your Dragon Awaken";
+            document.getElementById('audio').play();
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        }
+        else if (transcript.includes('the highest')) {
+            document.getElementById('doheras').innerHTML = "Your Dragon Awaken";
+            document.getElementById('audio').play();
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        }
+        else if (transcript.includes('the iris')) {
+            document.getElementById('doheras').innerHTML = "Your Dragon Awaken";
+            document.getElementById('audio').play();
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+        }
+        else if (transcript.includes('no higher')) {
+            document.getElementById('doheras').innerHTML = "Your Dragon Awaken";
+            document.getElementById('audio').play();
+            document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
         }
         else {
             document.getElementById('doheras').innerHTML = "Please Re-try!";
-        }
+        }        
     };
 
     recognition.onerror = function(event) {
@@ -78,7 +169,22 @@
     };
 
     recognition.start();
-});
-      </script> 
+    });
+    function myFunction() {
+    const box = document.getElementById('dohaeras');
+    const xob = document.getElementById('border-dohaeras');
+    const mic = document.getElementById('speak');
+    const phone = document.getElementById('microphone');
+    const logoMic = document.getElementById('logo-mic');
+    const logoApi = document.getElementById('logo-api');  
+
+    box.classList.toggle('test');
+    xob.classList.toggle('border-dohaeras');
+    mic.classList.toggle('tapToSpeak');
+    phone.classList.toggle('phone');
+    logoMic.classList.toggle('logo-mic');
+    logoApi.classList.toggle('logo-api');
+}
+    </script> 
 </body>
 </html>
